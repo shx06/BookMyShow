@@ -1,17 +1,21 @@
 package com.example.bookmyshow.models;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Primary;
 
 import java.util.Date;
 
 @Getter
 @Setter
-@Entity
+@MappedSuperclass
 public class BaseModel {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
     private Date createDate;
     private Date updateDate;
